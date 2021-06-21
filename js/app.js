@@ -33,7 +33,7 @@ for (const section of sections) { // functions to create the list
     var navMenu = section.getAttribute('id')
     listItem.innerHTML = `<a class= "menu__link" id =${navMenu} href=#${navMenu}>${navName}</a>` // to make the transiction to the section
     fragment.appendChild(listItem) // to return the navbar
-    console.log(navName)
+    console.log(fragment);
 
     listItem.addEventListener('click', function scrollToSection(event) {
         event.preventDefault(); // using prevent default to remove the default behavior
@@ -42,7 +42,9 @@ for (const section of sections) { // functions to create the list
             block: "center"
         }) // to add behavior smooth to the transition
     })
-//------------------------------------------------------------------------------------------------
+
+
+    //------------------------------------------------------------------------------------------------
     window.addEventListener('scroll', toggleActiveState);
     function toggleActiveState() {
         const options = {
@@ -52,14 +54,13 @@ for (const section of sections) { // functions to create the list
         const observer = new IntersectionObserver(function
             (entries) {
             entries.forEach(entry => {
-                console.log(entry)
                 if (entry.isIntersecting) {
                     entry.target.classList.add('your-active-class');
-                    // element.classList.add('active-link')
+                    // element.forEach.classList.add('active-link')
                 }
                 else {
                     entry.target.classList.remove('your-active-class')
-                    // element.classList.remove('active-link')
+                    // element.forEach.classList.remove('active-link')
                 } // to add the your active class 
 
 

@@ -29,8 +29,8 @@ let fragment = document.createDocumentFragment();
 */
 for (const section of sections) { // functions to create the list
     listItem = document.createElement('li')
-    var navName = section.getAttribute('data-nav') // define the attribure to get the nav items name
-    var navMenu = section.getAttribute('id')
+    const navName = section.getAttribute('data-nav') // define the attribure to get the nav items name
+    const navMenu = section.getAttribute('id')
     listItem.innerHTML = `<a class= "menu__link" id =${navMenu} href=#${navMenu}>${navName}</a>` // to make the transiction to the section
     fragment.appendChild(listItem) // to return the navbar
     console.log(fragment);
@@ -54,33 +54,25 @@ for (const section of sections) { // functions to create the list
         const observer = new IntersectionObserver(function
             (entries) {
             entries.forEach(entry => {
+                const actLink = navMenu;
                 if (entry.isIntersecting) {
                     entry.target.classList.add('your-active-class');
+                    document.querySelector(`nav li a[href="${actLink}]`).classList.add('active-link')
                 }
                 else {
                     entry.target.classList.remove('your-active-class')
+                    document.querySelector(`nav li a[href="${actLink}]`).classList.remove('active-link')
                 } // to add the your active class 
-            let actLink = document.getElementsByClassName('menu__link');
-                actLink.addEventListener('click', function toggleNavActiveClass (event) {
-                    actLink.forEach(i => {
-                        if (!i.classList.contains('active-link')) {
-                            i.classList.add('active-link');
-                        } else {
-                            i.classList.remove('active-link');
-                        }
-
-                    })
-                })
-
-
             })
 
         }, options)
 
         sections.forEach(section => {
             observer.observe(section);
-            observer.observe(element)
         }) // to apply the intersection observer syntax on the sections
+        document.querySelectorAll('section[id]').forEach((section) => {
+            observer.observe(section);
+        } )
 
     }
 

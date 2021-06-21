@@ -56,12 +56,21 @@ for (const section of sections) { // functions to create the list
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('your-active-class');
-                    // element.forEach.classList.add('active-link')
                 }
                 else {
                     entry.target.classList.remove('your-active-class')
-                    // element.forEach.classList.remove('active-link')
                 } // to add the your active class 
+            let actLink = document.getElementsByClassName('menu__link');
+                actLink.addEventListener('click', function toggleNavActiveClass (event) {
+                    actLink.forEach(i => {
+                        if (!i.classList.contains('active-link')) {
+                            i.classList.add('active-link');
+                        } else {
+                            i.classList.remove('active-link');
+                        }
+
+                    })
+                })
 
 
             })

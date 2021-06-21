@@ -107,7 +107,7 @@ function navSlide() {
 
     menu.addEventListener('click', () => {  // func to add 
         if (navg.classList === 'navbar__active') {
-            navg.classList.toggle('.navbar__inactive');
+            navg.classList.toggle('navbar__inactive');
         }
         else {
             navg.classList.toggle('navbar__active');

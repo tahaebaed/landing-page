@@ -56,11 +56,11 @@ for (const section of sections) { // functions to create the list
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('your-active-class');
-                    element.forEach.classList.add('active-link')
+                    // element.forEach.classList.add('active-link')
                 }
                 else {
                     entry.target.classList.remove('your-active-class')
-                    element.forEach.classList.remove('active-link')
+                    // element.forEach.classList.remove('active-link')
                 } // to add the your active class 
 
 

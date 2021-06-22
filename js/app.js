@@ -57,11 +57,11 @@ for (const section of sections) { // functions to create the list
                 const actLink = navMenu;
                 if (entry.isIntersecting) {
                     entry.target.classList.add('your-active-class');
-                    document.querySelector(`nav li a[href="${actLink}]`).classList.add('active-link')
+                    // document.querySelector(`nav li a[href="${actLink}]`).classList.add('active-link') - removed it wasn't correct
                 }
                 else {
                     entry.target.classList.remove('your-active-class')
-                    document.querySelector(`nav li a[href="${actLink}]`).classList.remove('active-link')
+                    // document.querySelector(`nav li a[href="${actLink}]`).classList.remove('active-link') -removed it wasn't corrcet
                 } // to add the your active class 
             })
 
@@ -70,9 +70,9 @@ for (const section of sections) { // functions to create the list
         sections.forEach(section => {
             observer.observe(section);
         }) // to apply the intersection observer syntax on the sections
-        document.querySelectorAll('section[id]').forEach((section) => {
-            observer.observe(section);
-        } )
+        // document.querySelectorAll('section[id]').forEach((section) => {
+        //     observer.observe(section);
+        // } )
 
     }
 

@@ -42,6 +42,22 @@ for (const section of sections) { // functions to create the list
             block: "center"
         }) // to add behavior smooth to the transition
     })
+    //------------------------------------------------------------------------------------
+    // the actve link state func
+    listItem.addEventListener('click', actLinkState)
+    function actLinkState() {
+        let lists = document.querySelectorAll(`a[href="#${navMenu}"]`);
+        for (const list of lists) {
+            if (!list.classList.contains('active-link')) {
+                list.classList.add('active-link')
+            }
+            else {
+                list.classList.remove('active-link')
+            }
+        }
+    }
+
+
 
 
     //------------------------------------------------------------------------------------------------
@@ -57,11 +73,11 @@ for (const section of sections) { // functions to create the list
                 const actLink = navMenu;
                 if (entry.isIntersecting) {
                     entry.target.classList.add('your-active-class');
-                    // document.querySelector(`nav li a[href="${actLink}]`).classList.add('active-link') - removed it wasn't correct
+                    // document.querySelector(`li a`).classList.add('active-link') //- removed it wasn't correct
                 }
                 else {
                     entry.target.classList.remove('your-active-class')
-                    // document.querySelector(`nav li a[href="${actLink}]`).classList.remove('active-link') -removed it wasn't corrcet
+                    // document.querySelector(`li a`).classList.remove('active-link') //-removed it wasn't corrcet
                 } // to add the your active class 
             })
 

@@ -21,6 +21,7 @@ const sections = document.querySelectorAll('section'); // select the sections an
 const element = document.getElementById("navbar__list"); // to define the id to get the ul
 let fragment = document.createDocumentFragment();
 
+
 // ----------------------------------------------------------------------------------------------------------
 /**
  * End Global Variables
@@ -31,7 +32,7 @@ for (const section of sections) { // functions to create the list
     listItem = document.createElement('li')
     const navName = section.getAttribute('data-nav') // define the attribure to get the nav items name
     const navMenu = section.getAttribute('id')
-    listItem.innerHTML = `<a class= "menu__link" id =${navMenu} href=#${navMenu}>${navName}</a>` // to make the transiction to the section
+    listItem.innerHTML = `<a class= "menu__link" id="li_${navMenu}" href=#${navMenu}>${navName}</a>` // to make the transiction to the section
     fragment.appendChild(listItem) // to return the navbar
     console.log(fragment);
 
@@ -44,24 +45,14 @@ for (const section of sections) { // functions to create the list
     })
     //------------------------------------------------------------------------------------
     // the actve link state func
-    listItem.addEventListener('click', actLinkState)
-    function actLinkState() {
-        let lists = document.querySelectorAll(`.menu__link`);
-    //     // for (const list of lists)         {
-    //         if (list.classList.contains('active-link')) {
-    //             list.classList.remove('active-link')
-    //         }
-    //         else {
-    //             list.classList.remove('active-link')
-    //         }
-    //     }
-    lists.forEach(list => {
-        list.classList.remove('active-link');
-        let aSelect = document.querySelectorAll('a');
-
-         
+    const anchors = document.querySelectorAll('.menu__link');
+    anchors.forEach(anchor => {
+        anchor.addEventListener('click', function(){
+            anchor.classList.add('active-link');
+        })
+        
     });
-    }
+
 
 
 
@@ -79,6 +70,14 @@ for (const section of sections) { // functions to create the list
                 const actLink = navMenu;
                 if (entry.isIntersecting) {
                     entry.target.classList.add('your-active-class');
+                    document.querySelectorAll('.menu__link').forEach(function (navElement){
+                        navElement.classList.remove('active-link');
+                        console.log(navElement.getAttribute("id"));
+                        if(navElement.getAttribute("id") == 'li_'+entry.target.getAttribute("id")){
+                            navElement.classList.add('active-link');
+                        }
+                    })
+
                     // document.querySelector(`li a`).classList.add('active-link') //- removed it wasn't correct
                 }
                 else {

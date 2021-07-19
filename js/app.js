@@ -58,6 +58,8 @@ for (const section of sections) { // functions to create the list
     lists.forEach(list => {
         list.classList.remove('active-link');
         let aSelect = document.querySelectorAll('a');
+
+         
     });
     }
 

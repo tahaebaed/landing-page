@@ -45,13 +45,13 @@ for (const section of sections) { // functions to create the list
     })
     //------------------------------------------------------------------------------------
     // the actve link state func
-    const anchors = document.querySelectorAll('.menu__link');
-    anchors.forEach(anchor => {
-        anchor.addEventListener('click', function(){
-            anchor.classList.add('active-link');
-        })
+    // const anchors = document.querySelectorAll('.menu__link');
+    // anchors.forEach(anchor => {
+    //     anchor.addEventListener('click', function(){
+    //         anchor.classList.add('active-link');
+    //     })
         
-    });
+    // });
 
 
 

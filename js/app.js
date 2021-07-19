@@ -46,15 +46,19 @@ for (const section of sections) { // functions to create the list
     // the actve link state func
     listItem.addEventListener('click', actLinkState)
     function actLinkState() {
-        let lists = document.querySelectorAll(`a[href="#${navMenu}"]`);
-        for (const list of lists) {
-            if (!list.classList.contains('active-link')) {
-                list.classList.add('active-link')
-            }
-            else {
-                list.classList.remove('active-link')
-            }
-        }
+        let lists = document.querySelectorAll(`.menu__link`);
+    //     // for (const list of lists)         {
+    //         if (list.classList.contains('active-link')) {
+    //             list.classList.remove('active-link')
+    //         }
+    //         else {
+    //             list.classList.remove('active-link')
+    //         }
+    //     }
+    lists.forEach(list => {
+        list.classList.remove('active-link');
+        let aSelect = document.querySelectorAll('a');
+    });
     }
 
 
